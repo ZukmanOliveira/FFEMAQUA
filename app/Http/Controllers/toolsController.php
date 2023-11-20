@@ -18,7 +18,7 @@ class toolsController extends Controller
   /**
    * Get List Tools
    * @OA\Get (
-   *     path="/api/tool/tools",
+   *     path="/api/tools",
    *     tags={"Tools"},
    *     @OA\Response(
    *         response=200,
@@ -38,7 +38,7 @@ class toolsController extends Controller
   /**
    * Create tool
    * @OA\Post (
-   *     path="/api/tool/tools",
+   *     path="/api/tools",
    *     tags={"Tools"},
    *     @OA\RequestBody(
    *         @OA\MediaType(
@@ -100,7 +100,7 @@ class toolsController extends Controller
   /**
    * Get Detail Todo
    * @OA\Get (
-   *     path="/api/tool/tools/{tags}",
+   *     path="/api/tools/{tags}",
    *     tags={"Tools"},
    *     @OA\Parameter(
    *         in="path",
@@ -133,7 +133,7 @@ class toolsController extends Controller
   /**
    * Delete tool
    * @OA\Delete (
-   *     path="/api/tool/tools/{id}",
+   *     path="/api/tools/{id}",
    *     tags={"Tools"},
    *     @OA\Parameter(
    *         in="path",
