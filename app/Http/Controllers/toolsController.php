@@ -14,7 +14,6 @@ use function PHPUnit\Framework\isEmpty;
 
 class toolsController extends Controller
 {
-
   /**
    * Get List Tools
    * @OA\Get (
@@ -34,8 +33,7 @@ class toolsController extends Controller
     $tools = toolsModel::with('tags')->get();
       return response()->json($tools, 200);
   }
-
-  /**
+ /**
    * Create tool
    * @OA\Post (
    *     path="/api/tools",
@@ -62,8 +60,7 @@ class toolsController extends Controller
    *                          property="tags",
    *                          type= "string"
    *                      )
-   *                 ),
-   *                
+   *                 ),    
    *             )
    *         )
    *      ),
@@ -73,6 +70,7 @@ class toolsController extends Controller
    *      ),
    * )
    */
+
   public function store(Request $request, toolsModel $tools, ToolsStoreRequest $validation)
   {
     $validation->validated();
@@ -145,14 +143,13 @@ class toolsController extends Controller
    *         response=200,
    *         description="success",
    *         @OA\JsonContent(
-   *             @OA\Property(property="msg", type="string", example="delete todo success")
+   *             @OA\Property(property="msg", type="string", example="delete success")
    *         )
    *     )
    * )
    */
   public function destroy($id)
   {
-    // lógica para excluir uma ferramenta por id
     if (toolsModel::where('id', $id)->exists()) {
       $tool = toolsModel::find($id);
       $tool->delete();
@@ -162,7 +159,7 @@ class toolsController extends Controller
       ], 202);
     } else {
       return response()->json([
-        "message" => "Ferramento não existE"
+        "message" => "Ferramenta não existe"
       ], 404);
     }
   }

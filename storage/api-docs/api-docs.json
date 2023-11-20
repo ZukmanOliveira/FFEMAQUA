@@ -10,18 +10,18 @@
     },
     "servers": [
         {
-            "url": "http://127.0.0.1:3000",
+            "url": "",
             "description": "Demo API Server"
         }
     ],
     "paths": {
-        "/api/tool/tools": {
+        "/api/tools": {
             "get": {
                 "tags": [
                     "Tools"
                 ],
                 "summary": "Get List Tools",
-                "operationId": "32dba1a49440b231b4607d52c81dcea1",
+                "operationId": "2c6afc0de4988cabb3d95fd469a50c23",
                 "responses": {
                     "200": {
                         "description": "success",
@@ -38,7 +38,7 @@
                     "Tools"
                 ],
                 "summary": "Create tool",
-                "operationId": "7a52dd53b151f08051209f783026c2ac",
+                "operationId": "b634977798d2b3c8f08ca41ad0ab0fc5",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -74,13 +74,13 @@
                 }
             }
         },
-        "/api/tool/tools/{tags}": {
+        "/api/tools/{tags}": {
             "get": {
                 "tags": [
                     "Tools"
                 ],
                 "summary": "Get Detail Todo",
-                "operationId": "d0092e9b6e012fd268ff2cc8fef75dda",
+                "operationId": "359015fedb9802ea8fe11bd3210c1f21",
                 "parameters": [
                     {
                         "name": "tags",
@@ -98,13 +98,13 @@
                 }
             }
         },
-        "/api/tool/tools/{id}": {
+        "/api/tools/{id}": {
             "delete": {
                 "tags": [
                     "Tools"
                 ],
                 "summary": "Delete tool",
-                "operationId": "a06f8abbb807158371f44c6e1d56f88a",
+                "operationId": "f9aba5edf179996cbb16caecfbabf2dd",
                 "parameters": [
                     {
                         "name": "id",
@@ -124,7 +124,7 @@
                                     "properties": {
                                         "msg": {
                                             "type": "string",
-                                            "example": "delete todo success"
+                                            "example": "delete success"
                                         }
                                     },
                                     "type": "object"
