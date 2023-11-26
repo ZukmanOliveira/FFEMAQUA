@@ -272,7 +272,7 @@ return [
 
             'authorization' => [
                 /*
-                 * If set to true, it persists authorization data, and it would not be lost on browser close/refresh
+                 * If set to true, it persists authorization data, and it would not be lost on brdowser close/refresh
                  */
                 'persist_authorization' => env('L5_SWAGGER_UI_PERSIST_AUTHORIZATION', false),
 

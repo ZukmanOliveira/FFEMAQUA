@@ -11,20 +11,29 @@ class AuthController extends Controller
 {
     public function register(Request $request, User $user)
     {
-        $user->create([
+/*
+        $this->validate($request,[
+            'name' =>'required|string',
+            'email'=>'required|email',
+            'password'=> 'required|',
+        ]);
+ 
+*/       $users = $user->create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
         
-        $token = JWTAuth::fromUser($user);
-
-        return response()->json(compact('user', $token, 200));
+        $token = JWTAuth::fromUser($users);
+        
+        return response()->json(compact('user', 'token'), '201');
     }
 
     public function login(Request $request)
     {
         $credenciais = $request->all(['email', 'password']);
+
+        dd($credenciais);
 
         $token = auth('api')->attempt($credenciais);
 

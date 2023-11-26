@@ -28,10 +28,24 @@ class toolsController extends Controller
    *     )
    * 
    */
-  public function index(Request $request, toolsModel $tools)
+  public function index(Request $request, toolsModel $tools, tagsModel $tags)
   {
     $tools = toolsModel::with('tags')->get();
-      return response()->json($tools, 200);
+    
+
+    // Agora, você pode personalizar os dados conforme necessário
+    $formattedData = $tools->map(function ($tool) {
+        return [
+            'title' => $tool->title,
+            'link' => $tool->link,
+            'description' => $tool->description,
+            'tags' => $tool->tags->pluck('tags'), // ou qualquer outra personalização desejada
+        ];
+    });
+
+      return response()->json($formattedData, 200);
+
+
   }
  /**
    * Create tool
