@@ -33,8 +33,6 @@ class AuthController extends Controller
     {
         $credenciais = $request->all(['email', 'password']);
 
-        dd($credenciais);
-
         $token = auth('api')->attempt($credenciais);
 
         if ($token) {

@@ -107,10 +107,9 @@ class toolsController extends Controller
     return response()->json($toolsTags, 200);
   }
 
-  
-  // FILTRO POR TAGS//
+
   /**
-   * Get Detail Todo
+   * Get Detail tool
    * @OA\Get (
    *     path="/api/tools/{tags}",
    *     tags={"Tools"},
@@ -139,6 +138,19 @@ class toolsController extends Controller
     if($toolsTags->isEmpty()){
       return response()->json($tags. ' Tag não existe', 404);
     }
+
+  //TESTE DE ESTRUTURA DE APRESENTAÇÃO
+  $formattedData = $toolsTags->map(function ($tool) {
+    return [
+        'title' => $tool->title,
+        'link' => $tool->link,
+        'description' => $tool->description,
+        'tags' => $tool->tags->pluck('tags'), // ou qualquer outra personalização desejada
+    ];
+});
+
+  dd($formattedData);
+
       return response()->json($toolsTags,200);
   }
 
