@@ -79,7 +79,7 @@
                 "tags": [
                     "Tools"
                 ],
-                "summary": "Get Detail Todo",
+                "summary": "Get Detail tool",
                 "operationId": "359015fedb9802ea8fe11bd3210c1f21",
                 "parameters": [
                     {
